@@ -3,3 +3,13 @@ const DATA_API =
 
 const KOMMUNE_API =
     "https://data.ssb.no/api/klass/v1/classifications/131/codes?from=2020-01-01";
+
+function getKommuneFraURL() {
+    return new URLSearchParams(window.location.search).get("kommune");
+}
+
+function setKommuneURL(kommune) {
+    const url = new URL(window.location);
+    url.searchParams.set("kommune", kommune);
+    window.history.replaceState({}, "", url);
+}
