@@ -222,3 +222,24 @@ function vurder(data) {
     document.getElementById("bra").innerHTML =
         `<strong>✅ Styrker og velfungerende drift</strong><br>${bra}`;
 }
+
+function oppdaterTittel() {
+    const select = document.getElementById("kommuneSelect");
+    const navn = select.options[select.selectedIndex].text;
+
+    document.getElementById("title").textContent = navn;
+}
+
+async function last(kommune) {
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("app").style.display = "none";
+
+    const data = await hentBefolkning(kommune);
+
+    lagGrafer(data.years, data.values);
+    vurder(data.values);
+    oppdaterTittel();
+
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("app").style.display = "block";
+}
