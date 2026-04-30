@@ -1,0 +1,36 @@
+:root {
+  /* Base colors */
+    --color-primary: #8B0000;
+    --color-secondary: #0B2A5B;
+    --color-background: #F8F9FB;
+
+    /* Semantic colors */
+    --color-error: #E06666;
+    --color-warning: #E89A5B;
+    --color-success: #6BC29A;
+
+    /* RGB (for opacity) */
+    --color-error-rgb: 224, 102, 102;
+    --color-warning-rgb: 232, 154, 91;
+    --color-success-rgb: 107, 194, 154;
+
+    /* Text + UI */
+    --color-text: #111;
+    --color-text-muted: #555;
+    --color-card: #ffffff;
+    --color-border: #eaeaea;
+
+    /* Fonts */
+    --font-heading: "Readex Pro", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Typography */
+    --h1-size: 64px;
+    --h2-size: 32px;
+    --h3-size: 24px;
+    --body-size: 16px;
+
+    /* Radius */
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    }
