@@ -243,3 +243,22 @@ async function last(kommune) {
     document.getElementById("loader").style.display = "none";
     document.getElementById("app").style.display = "block";
 }
+
+async function init() {
+    const fallback = await fyllDropdown();
+    const url = getKommuneFraURL();
+    const valgt = url || fallback;
+
+    const select = document.getElementById("kommuneSelect");
+    select.value = valgt;
+
+    select.addEventListener("change", e => {
+        const kode = e.target.value;
+        setKommuneURL(kode);
+        last(kode);
+    });
+
+    last(valgt);
+}
+
+init();
