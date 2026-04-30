@@ -25,3 +25,22 @@ async function hentKommuner() {
         navn: k.name
     }));
 }
+
+
+async function fyllDropdown() {
+    const select = document.getElementById("kommuneSelect");
+    const kommuner = await hentKommuner();
+
+    select.innerHTML = "";
+
+    kommuner
+        .sort((a, b) => a.navn.localeCompare(b.navn))
+        .forEach(k => {
+            const opt = document.createElement("option");
+            opt.value = k.kode;
+            opt.textContent = k.navn;
+            select.appendChild(opt);
+    });
+
+    return "0301";
+}
