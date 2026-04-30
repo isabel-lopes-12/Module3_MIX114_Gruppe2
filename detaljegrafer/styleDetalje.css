@@ -110,3 +110,21 @@ select:focus {
     font-size: var(--h3-size);
     font-weight: 600;
 }
+
+/*Kritisk */
+.red {
+    border-color: var(--color-error);
+    background: rgba(var(--color-error-rgb), 0.25);
+}
+
+/*Press */
+.orange {
+    border-color: var(--color-warning);
+    background: rgba(var(--color-warning-rgb), 0.25);
+}
+
+/*Bra */
+.green {
+    border-color: var(--color-success);
+    background: rgba(var(--color-success-rgb), 0.25);
+}
