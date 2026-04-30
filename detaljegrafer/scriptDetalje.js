@@ -13,3 +13,15 @@ function setKommuneURL(kommune) {
     url.searchParams.set("kommune", kommune);
     window.history.replaceState({}, "", url);
 }
+
+async function hentKommuner() {
+    const res = await fetch(KOMMUNE_API);
+    const json = await res.json();
+
+    return json.codes
+        .filter(k => k.code.length === 4)
+        .map(k => ({
+        kode: k.code,
+        navn: k.name
+    }));
+}
