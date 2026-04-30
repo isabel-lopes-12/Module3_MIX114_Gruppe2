@@ -75,3 +75,23 @@ function smooth(data) {
         : (arr[i - 1] + v + arr[i + 1]) / 3
     );
 }
+
+function lagDatasett(baseRaw) {
+    const base = smooth(baseRaw);
+
+    const change = base.map((v, i) =>
+        i === 0 ? 0 : ((v - base[i - 1]) / base[i - 1]) * 100
+    );
+
+    return [
+        base,
+        base.map((_, i) => 40 + i * 0.2),
+        change,
+        base.map(v => v / 50000),
+        base.map(v => v / 1000),
+        base.map((_, i) => 15 + i * 0.15),
+        base.map((_, i) => 1.8 - i * 0.02),
+        change.map(v => -v * 0.5),
+        change.map(v => v * 0.7)
+    ];
+}
