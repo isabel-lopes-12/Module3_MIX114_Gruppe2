@@ -67,3 +67,11 @@ async function hentBefolkning(kommune) {
         values: values.slice(-10)
     };
 }
+
+function smooth(data) {
+    return data.map((v, i, arr) =>
+        i === 0 || i === arr.length - 1
+        ? v
+        : (arr[i - 1] + v + arr[i + 1]) / 3
+    );
+}
