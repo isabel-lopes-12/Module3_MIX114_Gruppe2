@@ -87,3 +87,26 @@ select:focus {
     outline: none;
     border-color: var(--color-primary);
 }
+
+.assessment {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 60px;
+}
+
+.assess {
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    border: 4px solid;
+    background: var(--color-card);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.assess strong {
+    display: flex;
+    align-items: center;
+
+    font-size: var(--h3-size);
+    font-weight: 600;
+}
