@@ -113,3 +113,54 @@ const bullets = [
     ["Utflytting","Tap av innbyggere","Mobilitet"],
     ["Flyttebalanse (%)","Inn vs ut","Netto"]
 ];
+
+function lagGrafer(years, baseData) {
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    const datasets = lagDatasett(baseData);
+
+    datasets.forEach((data, i) => {
+        grid.insertAdjacentHTML("beforeend", `
+            <div class="card">
+        <div class="chart-box">
+            <div id="chart${i}" class="chart"></div>
+        </div>
+        <div class="title">${titles[i]}</div>
+        <div class="bullets">
+            • ${bullets[i][0]}<br>
+            • ${bullets[i][1]}<br>
+            • ${bullets[i][2]}
+            </div>
+        </div>
+    `);
+
+    Highcharts.chart("chart" + i, {
+        chart: { backgroundColor: "transparent" },
+        title: { text: "" },
+        credits: { enabled: false },
+        legend: { enabled: false },
+        xAxis: { categories: years },
+        yAxis: { title: { text: null }, gridLineColor: "#eee" },
+
+        tooltip: {
+        formatter: function () {
+            const y = this.y;
+
+            if (i === 2 || i === 7 || i === 8)
+                return `<b>${this.category}</b><br>${y.toFixed(1)}%`;
+
+            if (i === 3 || i === 6)
+                return `<b>${this.category}</b><br>${y.toFixed(2)}`;
+
+            return `<b>${this.category}</b><br>${Math.round(y).toLocaleString("no-NO")}`;
+        }
+        },
+
+        series: [{
+            data: data,
+            color: "#111"
+        }]
+    });
+    });
+}
