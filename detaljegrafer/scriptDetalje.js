@@ -95,3 +95,21 @@ function lagDatasett(baseRaw) {
         change.map(v => v * 0.7)
     ];
 }
+
+const titles = [
+    "👥 Populasjon","🎂 Alder","🔄 Migrasjon",
+    "🏠 Boligpris","💰 Inntekt","👴 Eldrevekst",
+    "👶 Fødselsrate","📉 Fraflytting","➕ Flyttebalanse"
+];
+
+const bullets = [
+    ["Antall innbyggere","Utvikling siste 10 år","Kilde: SSB"],
+    ["Gjennomsnittlig alder","Demografisk trend","Langsiktig"],
+    ["Årlig endring (%)","Inn/utflytting","Vekst"],
+    ["Boligpris (indeks)","Basert på etterspørsel","Trend"],
+    ["Inntekt (indeks)","Relativ utvikling","Kilde: SSB"],
+    ["Eldreandel","Økende = press","Helse"],
+    ["Fødselsrate","Fallende trend","Langsiktig"],
+    ["Utflytting","Tap av innbyggere","Mobilitet"],
+    ["Flyttebalanse (%)","Inn vs ut","Netto"]
+];
