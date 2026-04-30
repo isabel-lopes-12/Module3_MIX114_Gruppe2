@@ -164,3 +164,61 @@ function lagGrafer(years, baseData) {
     });
     });
 }
+
+function vurder(data) {
+    const første = data[0];
+    const siste = data.at(-1);
+    const forrige = data.at(-2);
+
+    const vekst = ((siste - første) / første) * 100;
+    const sisteEndring = ((siste - forrige) / forrige) * 100;
+
+    let kritisk, press, bra;
+
+  // KRITISK
+    if (vekst < 0) {
+        kritisk = `Befolkningen har falt med ${Math.abs(vekst).toFixed(1)}% de siste årene. 
+        Dette kan føre til lavere skatteinntekter, redusert etterspørsel etter tjenester og utfordringer med å opprettholde et bærekraftig tjenestetilbud. 
+        Over tid kan dette påvirke både næringsliv og attraktivitet negativt.`;
+    } else if (vekst > 8) {
+        kritisk = `Kommunen har hatt sterk befolkningsvekst (${vekst.toFixed(1)}%), noe som kan skape press på kapasitet i skoler, helse- og omsorgstjenester samt boligmarkedet. 
+        Uten tilstrekkelig planlegging kan dette føre til flaskehalser i tjenestetilbudet.`;
+    } else {
+        kritisk = `Det er ingen tydelige kritiske utviklingstrekk i befolkningsutviklingen. 
+        Likevel bør kommunen følge med på demografiske endringer, spesielt knyttet til aldring og fødselsrate, som kan påvirke behovet for tjenester på sikt.`;
+    }
+
+  // PRESS
+    if (sisteEndring > 1) {
+        press = `Befolkningen øker også i den siste perioden (${sisteEndring.toFixed(1)}%), noe som indikerer fortsatt tilflytting. 
+        Dette kan føre til økt press på boligmarked, infrastruktur og kommunale tjenester, særlig dersom veksten skjer raskere enn utbygging og kapasitetsøkning.`;
+    } else if (sisteEndring < -1) {
+        press = `Befolkningen har også gått ned i siste periode (${sisteEndring.toFixed(1)}%). 
+        Dette tyder på vedvarende utflytting eller lav tilflytting, noe som kan forsterke eksisterende utfordringer og gjøre det vanskeligere å opprettholde aktivitet og tjenestetilbud.`;
+    } else {
+        press = `Utviklingen i befolkningen er relativt stabil i den siste perioden (${sisteEndring.toFixed(1)}%). 
+        Dette gir kommunen bedre forutsigbarhet i planlegging av tjenester, bolig og infrastruktur.`;
+    }
+
+  // BRA
+    if (vekst > 5) {
+        bra = `Kommunen fremstår som attraktiv med en samlet befolkningsvekst på ${vekst.toFixed(1)}%. 
+        Dette kan tyde på god tilflytting, et velfungerende arbeidsmarked og attraktive bomiljøer. 
+        Vekst gir også økt skatteinngang og bedre grunnlag for utvikling av tjenester og tilbud.`;
+    } else if (vekst > 0) {
+        bra = `Befolkningen har økt moderat (${vekst.toFixed(1)}%), noe som gir en stabil og forutsigbar utvikling. 
+        Dette gjør det enklere å planlegge kapasitet i tjenester og infrastruktur uten store svingninger.`;
+    } else {
+        bra = `Lavere befolkning kan gi rom for bedre kapasitetsbalanse i enkelte tjenester og mindre press på bolig og infrastruktur. 
+        Dette kan gi kommunen handlingsrom til å omstille og tilpasse seg nye behov.`;
+    }
+
+    document.getElementById("kritisk").innerHTML =
+        `<strong>⛔ Kritiske utfordringer</strong><br>${kritisk}`;
+
+    document.getElementById("presset").innerHTML =
+        `<strong>📊 Press og utvikling</strong><br>${press}`;
+
+    document.getElementById("bra").innerHTML =
+        `<strong>✅ Styrker og velfungerende drift</strong><br>${bra}`;
+}
