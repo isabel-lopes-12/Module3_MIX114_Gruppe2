@@ -1,39 +1,47 @@
+/* Fjerner standard margin og padding fra alle elementer */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Grunnstil for hele nettsiden */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #ffffff;
   color: #111;
 }
 
+
 /* HEADER */
 
+
+/* Selve headeren øverst på siden */
 .site-header {
   width: 100%;
   height: 64px;
-  background-color: #970000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
+  background-color: #970000; /* Mørkerød farge slik som i Figma */
+  display: flex; /* Legger innholdet på én linje */
+  align-items: center; /* Midtstiller innholdet vertikalt */
+  justify-content: space-between; /* Plasserer logo til venstre og meny til høyre */
+  padding: 0 28px; /* Luft på venstre og høyre side */
 }
 
+/* Området med logo og tekst */
 .header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 12px; /* Avstand mellom logo og tekst */
 }
 
+/* Størrelse på logoen i headeren */
 .logo {
   width: 42px;
   height: 42px;
-  object-fit: contain;
+  object-fit: contain; /* Sørger for at logoen ikke blir strukket */
 }
 
+/* Tittelen KommuneKompasset */
 .brand-text h1 {
   color: #ffffff;
   font-size: 21px;
@@ -41,6 +49,7 @@ body {
   line-height: 1;
 }
 
+/* Slagordet under tittelen */
 .brand-text p {
   color: #ffffff;
   font-size: 8px;
@@ -48,45 +57,54 @@ body {
   font-style: italic;
 }
 
+/* Navigasjonsmenyen */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 24px; /* Avstand mellom Hjem og Om oss */
 }
 
+/* Lenker i menyen */
 .nav-link {
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: none; /* Fjerner understrek på lenkene */
   font-size: 15px;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease; /* Gir myk hover-effekt */
 }
 
+/* Når man holder musepekeren over lenkene */
 .nav-link:hover {
   opacity: 0.75;
 }
 
+/* Aktiv side i menyen */
 .nav-link.active {
   font-weight: 700;
 }
 
+
 /* FOOTER */
 
+
+/* Selve footeren nederst på siden */
 .site-footer {
   width: 100%;
   height: 58px;
-  background-color: #062b66;
+  background-color: #062b66; /* Mørk blå farge slik som i Figma */
   color: #ffffff;
-  position: relative;
+  position: relative; /* Gjør at teksten til høyre kan plasseres absolutt */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Innholdet som ligger i midten av footeren */
 .footer-center {
   text-align: center;
 }
 
+/* Logo og navn i footeren */
 .footer-brand {
   display: flex;
   align-items: center;
@@ -95,17 +113,20 @@ body {
   font-size: 11px;
 }
 
+/* Mindre logo i footeren */
 .footer-logo {
   width: 20px;
   height: 20px;
   object-fit: contain;
 }
 
+/* Copyright-tekst under logoen */
 .footer-center p {
   font-size: 8px;
   margin-top: 4px;
 }
 
+/* Teksten til høyre i footeren */
 .footer-source {
   position: absolute;
   right: 28px;
@@ -114,9 +135,14 @@ body {
   color: #ffffff;
 }
 
-/* RESPONSIVE */
 
+/* RESPONSIV DESIGN */
+
+
+/* Denne delen gjør header og footer bedre på små skjermer */
 @media (max-width: 600px) {
+
+  /* Headeren blir høyere og innholdet legges under hverandre */
   .site-header {
     height: auto;
     padding: 14px 18px;
@@ -124,14 +150,17 @@ body {
     gap: 12px;
   }
 
+  /* Litt mindre avstand mellom menylenkene på mobil */
   .nav-menu {
     gap: 18px;
   }
 
+  /* Litt mindre tittel på mobil */
   .brand-text h1 {
     font-size: 19px;
   }
 
+  /* Footeren får mer luft og tilpasser seg mobil */
   .site-footer {
     height: auto;
     padding: 16px 18px;
@@ -139,6 +168,7 @@ body {
     gap: 8px;
   }
 
+  /* Kildeteksten flyttes fra høyre side til normal plassering på mobil */
   .footer-source {
     position: static;
     font-size: 8px;
