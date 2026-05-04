@@ -13,3 +13,16 @@
 
     --radius-lg: 14px;
 }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
