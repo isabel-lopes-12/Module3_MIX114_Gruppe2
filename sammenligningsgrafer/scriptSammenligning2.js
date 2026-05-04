@@ -31,3 +31,25 @@ searchInput.addEventListener("input", e => {
         k.navn.toLowerCase().includes(value)
     );
 });
+
+    searchInput.addEventListener("keydown", async e => {
+    if (e.key === "Enter") {
+        if (!filtrertListe.length) return;
+
+        const kommune = filtrertListe[0];
+
+        if (valgte.find(k => k.kode === kommune.kode)) return;
+        if (valgte.length >= 4) return;
+
+        const data = await hentData(kommune.kode);
+
+        valgte.push({
+        kode: kommune.kode,
+        navn: kommune.navn,
+        data: data.values
+        });
+
+        searchInput.value = "";
+        render();
+    }
+    });
