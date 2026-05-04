@@ -315,6 +315,23 @@ select:focus {
     padding: 20px 60px;
 }
 
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+
+.ai-illustration {
+  width: 40px;
+  height: auto;
+}
+
+#AI-summary {
+    margin-top: 12px;
+    font-size: var(--body-size);
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
 
 
 /* AI Button */
@@ -339,6 +356,6 @@ select:focus {
 } 
 
 #ai-button {
-  font-size: var(--body-size);
   font-weight: 400;
+  font-family: var(--font-body);
 }
