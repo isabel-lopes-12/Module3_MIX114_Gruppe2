@@ -21,3 +21,13 @@ async function hentKommuner() {
 
     filtrertListe = alleKommuner;
 }
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", e => {
+    const value = e.target.value.toLowerCase();
+
+    filtrertListe = alleKommuner.filter(k =>
+        k.navn.toLowerCase().includes(value)
+    );
+});
