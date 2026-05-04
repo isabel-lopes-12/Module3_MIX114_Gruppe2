@@ -72,3 +72,31 @@ h1 {
     color: var(--color-text-muted);
     margin-top: 6px;
 }
+
+.chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.chip {
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chip button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: white;
+}
