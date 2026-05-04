@@ -115,3 +115,5 @@ async function hentData(kommune) {
         credits: { enabled: false }
     });
     }
+
+hentKommuner();
