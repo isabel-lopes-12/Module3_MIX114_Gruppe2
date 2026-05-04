@@ -53,3 +53,26 @@ searchInput.addEventListener("input", e => {
         render();
     }
     });
+
+async function hentData(kommune) {
+    const res = await fetch(
+        `${DATA_API}?lang=no&valueCodes[Region]=${kommune}&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=from(2015)`
+    );
+
+    const json = await res.json();
+
+    const index = json.dimension.Tid.category.index;
+
+    const years = Object.keys(index)
+        .sort((a, b) => index[a] - index[b]);
+
+    const values = years.map(y => {
+        const i = index[y];
+        return Number(json.value[i] || 0);
+    });
+
+    return {
+        years: years.slice(-10),
+        values: values.slice(-10)
+    };
+    }
