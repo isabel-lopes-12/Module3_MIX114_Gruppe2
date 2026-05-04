@@ -76,3 +76,8 @@ async function hentData(kommune) {
         values: values.slice(-10)
     };
     }
+
+    function fjern(kode) {
+        valgte = valgte.filter(k => k.kode !== kode);
+        render();
+}
