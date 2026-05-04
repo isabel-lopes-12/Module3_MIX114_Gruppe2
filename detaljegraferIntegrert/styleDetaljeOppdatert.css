@@ -342,7 +342,7 @@ select:focus {
 }
 
 .ai-btn {
-    background: var(--color-primary);
+    background: var(--color-secondary);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -352,7 +352,7 @@ select:focus {
 }
 
 .ai-btn:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary);
 } 
 
 #ai-button {

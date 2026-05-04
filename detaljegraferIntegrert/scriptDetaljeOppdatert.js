@@ -261,6 +261,39 @@ async function last(kommune) {
     document.getElementById("app").style.display = "block";
 }
 
+function setupAI() {
+    const aiButton = document.getElementById("ai-button");
+    const aiSummary = document.getElementById("AI-summary");
+
+    if (!aiButton || !aiSummary) return;
+
+    aiButton.addEventListener("click", async () => {
+        aiSummary.textContent = "KI oppsummerer...";
+
+        const kommuneNavn = document.getElementById("title").textContent;
+        const kritisk = document.getElementById("kritisk").innerText;
+        const presset = document.getElementById("presset").innerText;
+        const bra = document.getElementById("bra").innerText;
+
+        const response = await fetch("http://localhost:3000/api/summary", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                kommune: kommuneNavn,
+                kritisk: kritisk,
+                presset: presset,
+                bra: bra
+            })
+        });
+
+        const data = await response.json();
+        aiSummary.textContent = data.summary;
+    });
+}
+
+
 async function init() {
     const fallback = await fyllDropdown();
     const url = getKommuneFraURL();
@@ -274,6 +307,8 @@ async function init() {
         setKommuneURL(kode);
         last(kode);
     });
+
+    setupAI();
 
     last(valgt);
 }
