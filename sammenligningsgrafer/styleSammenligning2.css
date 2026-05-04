@@ -26,3 +26,24 @@ body {
     margin: 60px auto;
     padding: 20px;
 }
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.title-underline {
+    width: 170px;
+    height: 6px;
+    background: var(--color-primary);
+    margin-top: 10px;
+    border-radius: 4px;
+}
