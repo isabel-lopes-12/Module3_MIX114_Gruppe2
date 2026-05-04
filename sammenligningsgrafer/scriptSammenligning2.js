@@ -81,3 +81,37 @@ async function hentData(kommune) {
         valgte = valgte.filter(k => k.kode !== kode);
         render();
 }
+
+    function render() {
+    document.getElementById("selected").innerHTML =
+        valgte.map(k => `
+        <div class="chip">
+            ${k.navn}
+            <button onclick="fjern('${k.kode}')">×</button>
+        </div>
+        `).join("");
+
+    Highcharts.chart("chart", {
+        title: { text: null },
+
+        xAxis: {
+        categories: Array.from({ length: 10 }, (_, i) => 2015 + i)
+        },
+
+        yAxis: {
+        title: { text: "Antall personer" }
+        },
+
+        legend: {
+        align: "center",
+        verticalAlign: "top"
+        },
+
+        series: valgte.map(k => ({
+        name: k.navn,
+        data: k.data
+        })),
+
+        credits: { enabled: false }
+    });
+    }
