@@ -23,6 +23,8 @@ Dette prosjektet gjør det enklere å:
 * HTML, CSS, JavaScript
 * Highcharts
 * SSB API
+* ChatGPT API
+* Google Maps API
 ---
 
 Utviklet som et samarbeidsprosjekt 🚀
