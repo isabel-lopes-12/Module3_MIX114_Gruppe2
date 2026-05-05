@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+let fodselsrate = null // Global variabel for fødselsrate
 
 const DATA_API =
     "https://data.ssb.no/api/pxwebapi/v2/tables/07459/data";
@@ -24,6 +25,7 @@ const KOMMUNE_API =
 function getKommuneFraURL() {
     return new URLSearchParams(window.location.search).get("kommune");
 }
+console.log ("funet kommune fra URL:", getKommuneFraURL());
 
 function setKommuneURL(kommune) {
     const url = new URL(window.location);
@@ -136,6 +138,7 @@ function lagGrafer(years, baseData) {
     grid.innerHTML = "";
 
     const datasets = lagDatasett(baseData);
+    sisteFodselsrate = datasets[6].slice(-1); // Oppdater global variabel med siste fødselsrate
 
     datasets.forEach((data, i) => {
         grid.insertAdjacentHTML("beforeend", `
@@ -259,22 +262,21 @@ async function last(kommune) {
 
     document.getElementById("loader").style.display = "none";
     document.getElementById("app").style.display = "block";
+
+    hentAISummary();
 }
 
-function setupAI() {
-    const aiButton = document.getElementById("ai-button");
+async function hentAISummary() {
     const aiSummary = document.getElementById("AI-summary");
 
-    if (!aiButton || !aiSummary) return;
+    aiSummary.textContent = "KI oppsummerer...";
 
-    aiButton.addEventListener("click", async () => {
-        aiSummary.textContent = "KI oppsummerer...";
+    const kommuneNavn = document.getElementById("title").textContent;
+    const kritisk = document.getElementById("kritisk").innerText;
+    const presset = document.getElementById("presset").innerText;
+    const bra = document.getElementById("bra").innerText;
 
-        const kommuneNavn = document.getElementById("title").textContent;
-        const kritisk = document.getElementById("kritisk").innerText;
-        const presset = document.getElementById("presset").innerText;
-        const bra = document.getElementById("bra").innerText;
-
+    try {
         const response = await fetch("http://localhost:3000/api/summary", {
             method: "POST",
             headers: {
@@ -284,14 +286,34 @@ function setupAI() {
                 kommune: kommuneNavn,
                 kritisk: kritisk,
                 presset: presset,
-                bra: bra
+                bra: bra,
+                fodselsrate: sisteFodselsrate
             })
         });
 
         const data = await response.json();
-        aiSummary.textContent = data.summary;
+        aiSummary.innerHTML = data.summary;
+
+    } catch (error) {
+        console.error("AI-feil:", error);
+        aiSummary.innerHTML = "Kunne ikke koble til KI-serveren.";
+    }
+}
+
+function setupAI() {
+    const aiButton = document.getElementById("ai-button");
+    const aiSummary = document.getElementById("AI-summary");
+
+    if (!aiButton || !aiSummary) return;
+
+    aiButton.addEventListener("click", () => {
+        aiSummary.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     });
 }
+
 
 
 async function init() {
@@ -313,4 +335,6 @@ async function init() {
     last(valgt);
 }
 
+
 init();
+

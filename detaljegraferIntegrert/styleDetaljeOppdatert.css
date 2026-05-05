@@ -316,9 +316,9 @@ select:focus {
 }
 
 .ai-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 } 
 
 .ai-illustration {
@@ -327,10 +327,18 @@ select:focus {
 }
 
 #AI-summary {
-    margin-top: 12px;
-    font-size: var(--body-size);
-    color: var(--color-text);
-    font-family: var(--font-body);
+  margin-top: 12px;
+  font-size: var(--body-size);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+#AI-summary ul{
+  padding-left: 45px;
+}
+
+#AI-summary li {
+  margin-bottom: 6px;
 }
 
 

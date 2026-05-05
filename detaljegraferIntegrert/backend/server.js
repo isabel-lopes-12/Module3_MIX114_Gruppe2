@@ -21,21 +21,75 @@ app.post("/api/summary", async (req, res) => {
     const response = await client.responses.create({
       model: "gpt-4.1-mini",
       input: `
-Oppsummer denne kommunen kort og tydelig:
 
-Kommune: ${data.kommune}
+        Du er en hjelpsom analyseassistent for kommunal planlegging.
 
-Kritisk:
-${data.kritisk}
+        Lag en kort og lett forståelig oppsummering av kommunen ${data.kommune}.
 
-Press:
-${data.presset}
+        VIKTIG:
+        Svar KUN i HTML-format.
 
-Bra:
-${data.bra}
+        Bruk enkelt språk (ikke akademisk).
+        Skriv for raskt overblikk.
 
-Svar på norsk, 4-6 setninger.
-`
+        Bruke denne strukturen:
+        <p><strong>Kort oppsumert:</strong> én kort setning</p>
+
+        <ul>
+          <li>Kort punkt</li>
+          <li>Kort punkt</li>
+          <li>Kort punkt</li>
+          <li>Kort punkt</li>
+        </ul>
+
+        Format:
+        - Start med 1 kort hovedpoeng (én setning)
+        - Maks 5 kulepunkter
+        - Du må inkludere et kulepunkt om fødselsrate
+        - Korte setninger
+        - Ikke lange avsnitt
+        - Ikke skriv lange avsnitt
+        - Enkelt språk
+        - Bruk gjerne emojis for å gjøre det mer visuelt og engasjerende, for eksempel:
+          - Skole: 🎓
+          - Helse: 🏥
+          - Bolig: 🏠
+          - Kommunale tjenester: 🏛️
+          - Utfordringer: ⚠️
+          - Styrker: ✅
+          - Press: 🔥
+          - Fødselsrate: 👶
+
+
+        Forklar hva utviklingen kan bety for:
+        - skole
+        - helse
+        - bolig
+        - kommunale tjenester
+        - fødselsrate
+
+        Vurder også fødselsrate spesielt:
+        - Lav fødselsrate kan gi aldrende befolkning
+        - Høy fødselsrate kan gi behov for flere skoler/barnehager
+        - Fødselsrate er regnet i barn per kvinne, spesifiser dette i oppsummeringen
+
+        Data:
+
+        Kritiske utfordringer:
+        ${data.kritisk}
+
+        Press og utvikling:
+        ${data.presset}
+
+        Styrker:
+        ${data.bra}
+
+        Fødselsrate:
+        ${data.fodselsrate} barn per kvinne
+
+        Svar maks 120 ord.
+        Bruk gjerne kulepunkter, emojis og korte setninger. 
+        `
     });
 
     res.json({
@@ -53,5 +107,3 @@ Svar på norsk, 4-6 setninger.
 app.listen(3000, () => {
   console.log("Server kjører på http://localhost:3000");
 });
-
-console.log("Fikk request:", req.body);
