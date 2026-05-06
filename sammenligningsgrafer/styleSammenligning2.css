@@ -1,0 +1,315 @@
+:root {
+  /* Base colors */
+    --color-primary: #8B0000;
+    --color-secondary: #0B2A5B;
+    --color-background: #F8F9FB;
+
+    /* Semantic colors */
+    --color-error: #E06666;
+    --color-warning: #E89A5B;
+    --color-success: #6BC29A;
+
+    /* RGB (for opacity) */
+    --color-error-rgb: 224, 102, 102;
+    --color-warning-rgb: 232, 154, 91;
+    --color-success-rgb: 107, 194, 154;
+
+    /* Text + UI */
+    --color-text: #111;
+    --color-text-muted: #555;
+    --color-card: #ffffff;
+    --color-border: #eaeaea;
+
+    /* Fonts */
+    --font-heading: "Readex Pro", sans-serif;
+    --font-body: "Poppins", sans-serif;
+
+    /* Typography */
+    --h1-size: 64px;
+    --h2-size: 32px;
+    --h3-size: 24px;
+    --body-size: 16px;
+
+    /* Radius */
+    --radius-md: 10px;
+    --radius-lg: 12px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Fjerner standard margin og padding fra alle elementer */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grunnstil for hele nettsiden */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111;
+}
+
+
+/* HEADER */
+
+
+/* Selve headeren øverst på siden */
+.site-header {
+  width: 100%;
+  height: 64px;
+  background-color: #970000; /* Mørkerød farge slik som i Figma */
+  display: flex; /* Legger innholdet på én linje */
+  align-items: center; /* Midtstiller innholdet vertikalt */
+  justify-content: space-between; /* Plasserer logo til venstre og meny til høyre */
+  padding: 0 28px; /* Luft på venstre og høyre side */
+}
+
+/* Området med logo og tekst */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Avstand mellom logo og tekst */
+}
+
+/* Størrelse på logoen i headeren */
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain; /* Sørger for at logoen ikke blir strukket */
+}
+
+/* Tittelen KommuneKompasset */
+.brand-text h1 {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Slagordet under tittelen */
+.brand-text p {
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Navigasjonsmenyen */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Avstand mellom Hjem og Om oss */
+}
+
+/* Lenker i menyen */
+.nav-link {
+  color: #ffffff;
+  text-decoration: none; /* Fjerner understrek på lenkene */
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.2s ease; /* Gir myk hover-effekt */
+}
+
+/* Når man holder musepekeren over lenkene */
+.nav-link:hover {
+  opacity: 0.75;
+}
+
+/* Aktiv side i menyen */
+.nav-link.active {
+  font-weight: 700;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size:var(--h1-size);
+    font-weight: 600;
+    margin: 0;
+    font-family: var(--font-heading);
+}
+
+.title-underline {
+    width: 300px;
+    height: 8px;
+    background: var(--color-primary);
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#search {
+    width: 320px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    font-size: 14px;
+}
+
+#search:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.helper {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+}
+
+.chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.chip {
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chip button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.card {
+    background: var(--color-card);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+}
+
+h3 {
+    margin-bottom: 15px;
+    font-family: var(--font-body);
+    font-size: var(--h3-size);
+}
+
+#chart {
+    height: 400px;
+}
+
+
+/* Selve footeren nederst på siden */
+.site-footer {
+  width: 100%;
+  height: 58px;
+  background-color: #062b66; /* Mørk blå farge slik som i Figma */
+  color: #ffffff;
+  position: relative; /* Gjør at teksten til høyre kan plasseres absolutt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Innholdet som ligger i midten av footeren */
+.footer-center {
+  text-align: center;
+}
+
+/* Logo og navn i footeren */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+/* Mindre logo i footeren */
+.footer-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Copyright-tekst under logoen */
+.footer-center p {
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+/* Teksten til høyre i footeren */
+.footer-source {
+  position: absolute;
+  right: 28px;
+  bottom: 18px;
+  font-size: 8px;
+  color: #ffffff;
+}
+
+
+/* RESPONSIV DESIGN */
+
+
+/* Denne delen gjør header og footer bedre på små skjermer */
+@media (max-width: 600px) {
+
+  /* Headeren blir høyere og innholdet legges under hverandre */
+  .site-header {
+    height: auto;
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Litt mindre avstand mellom menylenkene på mobil */
+  .nav-menu {
+    gap: 18px;
+  }
+
+  /* Litt mindre tittel på mobil */
+  .brand-text h1 {
+    font-size: 19px;
+  }
+
+  /* Footeren får mer luft og tilpasser seg mobil */
+  .site-footer {
+    height: auto;
+    padding: 16px 18px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Kildeteksten flyttes fra høyre side til normal plassering på mobil */
+  .footer-source {
+    position: static;
+    font-size: 8px;
+  }
+}
