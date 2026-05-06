@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+.filter-panel {
+  width: 320px;
+  background: #ffffff;
+  border: 1px solid #d3d1c7;
+  border-radius: 12px;
+  padding: 18px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.filter-panel h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #1b2a4a;
+}
+
+.filter-search {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.filter-search span {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888780;
+}
+
+.filter-search input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid #d3d1c7;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.filter-item {
+  padding: 10px 12px;
+  border: 1px solid #d3d1c7;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #f7f6f2;
+  color: #2c2c2a;
+  font-size: 14px;
+}
+
+.filter-item:hover {
+  background: #eef1f8;
+}
+
+.filter-item.active {
+  background: #1b2a4a;
+  color: white;
+  border-color: #1b2a4a;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-buttons button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #6b0000;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover {
+  background: #820000;
+}
+
+.filter-buttons button.active {
+  background: #1b2a4a;
+}
