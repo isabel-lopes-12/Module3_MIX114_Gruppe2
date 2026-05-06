@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kommune Dashboard</title>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="styleDetalje.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Readex+Pro:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Headeren er toppen av nettsiden -->
+<header class="site-header">
+
+  <!-- Venstre del av headeren med logo og tekst -->
+  <div class="header-left">
+
+    <!-- Teksten ved siden av logoen -->
+    <div class="brand-text">
+      <h1>KommuneKompasset</h1>
+      <p>Bak tallene. Foran beslutningene.</p>
+    </div>
+  </div>
+
+  <!-- Navigasjonsmenyen til høyre i headeren -->
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-link">Hjem</a>
+    <a href="om-oss.html" class="nav-link">Om oss</a>
+  </nav>
+</header>
+
+    <header>
+        <h1 id="title">Laster...</h1>
+    </header>
+
+    <div class="topbar">
+        <div class="select-wrapper">
+            <select id="kommuneSelect"></select>
+            <br>
+            <br>    
+            <p>Sist oppdatert: <b>Mai 2026</b></p>
+        </div>
+    </div>
+
+<div id="loader">Laster...</div>
+
+<main id="app" style="display:none">
+
+    <div class="assessment">
+        <div class="assess red" id="kritisk"></div>
+        <div class="assess orange" id="presset"></div>
+        <div class="assess green" id="bra"></div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+
+</main>
+
+
+<!-- Footeren er bunnen av nettsiden -->
+<footer class="site-footer">
+
+  <!-- Midtstilt innhold i footeren -->
+  <div class="footer-center">
+
+    <!-- Logo og navn i footeren -->
+    <div class="footer-brand">
+      <span>KommuneKompasset</span>
+    </div>
+
+    <!-- Gruppeinformasjon -->
+    <p>© Gruppe 2</p>
+  </div>
+
+  <!-- Tekst helt til høyre i footeren -->
+  <p class="footer-source">Tall hentet fra SSB/KOSTRA</p>
+</footer>
+
+<script src="scriptDetalje.js"></script>
+</body>
+</html>
