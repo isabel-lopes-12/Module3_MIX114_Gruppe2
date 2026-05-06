@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Random funksjoner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f4f4f4;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: black;
+      color: white;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Random funksjoner</h1>
+
+  <section>
+    <h2>Random tall</h2>
+    <button onclick="randomTall()">Lag tall</button>
+    <p id="tallResultat"></p>
+  </section>
+
+  <section>
+    <h2>Random farge</h2>
+    <button onclick="randomFarge()">Bytt bakgrunnsfarge</button>
+  </section>
+
+  <section>
+    <h2>Random sitat</h2>
+    <button onclick="randomSitat()">Vis sitat</button>
+    <p id="sitatResultat"></p>
+  </section>
+
+  <section>
+    <h2>Random emoji</h2>
+    <button onclick="randomEmoji()">Vis emoji</button>
+    <p id="emojiResultat"></p>
+  </section>
+
+  <script>
+    function randomTall() {
+      const tall = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("tallResultat").textContent = "Random tall: " + tall;
+    }
+
+    function randomFarge() {
+      const farger = ["#f7c6c7", "#c6e2ff", "#d4f8d4", "#fff3b0", "#e0c3fc"];
+      const randomIndex = Math.floor(Math.random() * farger.length);
+      document.body.style.backgroundColor = farger[randomIndex];
+    }
+
+    function randomSitat() {
+      const sitater = [
+        "Du klarer mer enn du tror.",
+        "Små steg teller også.",
+        "Progress over perfection.",
+        "Bare start.",
+        "Dette blir bra."
+      ];
+
+      const randomIndex = Math.floor(Math.random() * sitater.length);
+      document.getElementById("sitatResultat").textContent = sitater[randomIndex];
+    }
+
+    function randomEmoji() {
+      const emojis = ["✨", "🌸", "🔥", "🧠", "💅", "🌞", "🍓"];
+      const randomIndex = Math.floor(Math.random() * emojis.length);
+      document.getElementById("emojiResultat").textContent = emojis[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
