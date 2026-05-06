@@ -8,13 +8,13 @@
 
   <title>KommuneKompasset</title>
 
-  <!-- Kobler til CSS-filen -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Kobler HTML-filen til CSS-filen -->
+  <link rel="stylesheet" href="designkart.css" />
 
-  <!-- D3 brukes for å tegne Norge-kartet -->
+  <!-- D3 brukes for å tegne Norge-kartet som SVG -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
-  <!-- Turf brukes for å finne nabokommuner -->
+  <!-- Turf brukes for å finne nabokommuner når man klikker på en kommune -->
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 </head>
 
@@ -25,7 +25,9 @@
 
     <!-- Venstre side av header med logo og tekst -->
     <div class="header-left">
-      <img src="logo.png" alt="KommuneKompasset logo" class="logo" />
+
+      <!-- Logoen ligger i mappen images2 og heter logobilde2.png -->
+      <img src="images2/logobilde2.png" alt="KommuneKompasset logo" class="logo" />
 
       <div class="brand-text">
         <h1>KommuneKompasset</h1>
@@ -33,9 +35,9 @@
       </div>
     </div>
 
-    <!-- Navigasjon til høyre -->
+    <!-- Navigasjon til høyre i headeren -->
     <nav class="nav-menu">
-      <a href="index.html">Hjem</a>
+      <a href="designkart.html">Hjem</a>
       <a href="#">Om oss</a>
     </nav>
 
@@ -49,14 +51,16 @@
     <section class="hero">
       <h2>Bak tallene. Foran <em>beslutningene.</em></h2>
 
+      <!-- Søkefelt for kommuner -->
       <div class="search-box">
         <span class="search-icon">⌕</span>
-        <input type="text" placeholder="Søk etter kommune..." />
+        <input type="text" id="searchInput" placeholder="Søk etter kommune..." />
       </div>
 
-      <button class="compare-btn">
+      <!-- Knapp videre til sammenligningssiden -->
+      <a href="sammenligningsgrafer/indexSammenligning2.html" class="compare-btn">
         Sammenlign <span>➜</span>
-      </button>
+      </a>
 
       <p class="intro-text">
         Kommunekompasset er et verktøy hvor data om kommuner er samlet på ett sted
@@ -77,6 +81,7 @@
           <span>⌕</span>
         </div>
 
+        <!-- Filtervalgene er foreløpig visuelle -->
         <label><input type="radio" name="theme" /> Populasjon</label>
         <label><input type="radio" name="theme" /> Alder</label>
         <label><input type="radio" name="theme" /> Migrasjon</label>
@@ -87,16 +92,29 @@
         <label><input type="radio" name="theme" /> Høy fraflytting</label>
 
         <p>Basert på gjennomsnittet i Norge*</p>
+
+        <!-- Toggle-knapper slik som i Figma-skissen -->
+        <div class="toggle-row">
+          <div class="toggle-item">
+            <span class="toggle"></span>
+            <span>Vis over</span>
+          </div>
+
+          <div class="toggle-item">
+            <span class="toggle active"></span>
+            <span>Vis under</span>
+          </div>
+        </div>
       </aside>
 
 
       <!-- KART -->
       <div class="map-wrapper">
 
-        <!-- Her tegnes kartet med JavaScript -->
+        <!-- Her tegnes Norge-kartet med JavaScript -->
         <svg id="norwayMap"></svg>
 
-        <!-- Denne vises når man hover over en kommune -->
+        <!-- Denne boksen vises når man holder musepekeren over en kommune -->
         <div id="tooltip" class="tooltip"></div>
 
       </div>
@@ -110,7 +128,7 @@
           Klikk på en kommune i kartet.
         </p>
 
-        <button>Se mer!</button>
+        <a href="detaljegrafer/index.html" class="read-more-btn">Se mer!</a>
       </aside>
 
     </section>
@@ -118,12 +136,26 @@
   </main>
 
 
+  <!-- INFOTEKST OVER FOOTER -->
+  <section class="bottom-info">
+    <p>
+      Kommunekompasset er laget for å bli det foretrukne verktøyet for kommuneplanleggere –
+      et sted hvor alt samles på ett sted og gjør hverdagen litt enklere. Med smarte løsninger
+      og en praktisk tilnærming gir det bedre oversikt, enklere samarbeid og et solid grunnlag
+      for gode beslutninger i planarbeidet.
+    </p>
+  </section>
+
+
   <!-- FOOTER -->
   <footer class="site-footer">
 
     <div class="footer-center">
       <div class="footer-brand">
-        <img src="logo.png" alt="KommuneKompasset logo" />
+
+        <!-- Logoen i footeren bruker samme bildefil -->
+        <img src="images2/logobilde2.png" alt="KommuneKompasset logo" />
+
         <span>KommuneKompasset</span>
       </div>
 
@@ -135,8 +167,8 @@
   </footer>
 
 
-  <!-- Kobler til JavaScript-filen -->
-  <script src="script.js"></script>
+  <!-- Kobler HTML-filen til JavaScript-filen -->
+  <script src="designkart.js"></script>
 
 </body>
 </html>
