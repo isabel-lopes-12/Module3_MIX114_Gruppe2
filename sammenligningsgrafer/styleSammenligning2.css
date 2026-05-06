@@ -48,6 +48,91 @@ body {
     padding: 20px;
 }
 
+/* Fjerner standard margin og padding fra alle elementer */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grunnstil for hele nettsiden */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111;
+}
+
+
+/* HEADER */
+
+
+/* Selve headeren øverst på siden */
+.site-header {
+  width: 100%;
+  height: 64px;
+  background-color: #970000; /* Mørkerød farge slik som i Figma */
+  display: flex; /* Legger innholdet på én linje */
+  align-items: center; /* Midtstiller innholdet vertikalt */
+  justify-content: space-between; /* Plasserer logo til venstre og meny til høyre */
+  padding: 0 28px; /* Luft på venstre og høyre side */
+}
+
+/* Området med logo og tekst */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Avstand mellom logo og tekst */
+}
+
+/* Størrelse på logoen i headeren */
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain; /* Sørger for at logoen ikke blir strukket */
+}
+
+/* Tittelen KommuneKompasset */
+.brand-text h1 {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Slagordet under tittelen */
+.brand-text p {
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Navigasjonsmenyen */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Avstand mellom Hjem og Om oss */
+}
+
+/* Lenker i menyen */
+.nav-link {
+  color: #ffffff;
+  text-decoration: none; /* Fjerner understrek på lenkene */
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.2s ease; /* Gir myk hover-effekt */
+}
+
+/* Når man holder musepekeren over lenkene */
+.nav-link:hover {
+  opacity: 0.75;
+}
+
+/* Aktiv side i menyen */
+.nav-link.active {
+  font-weight: 700;
+}
+
 .top-row {
     display: flex;
     justify-content: space-between;
