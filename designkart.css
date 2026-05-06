@@ -132,6 +132,11 @@ body {
   background-color: #001f4d;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .compare-btn span {
   margin-left: 8px;
 }
