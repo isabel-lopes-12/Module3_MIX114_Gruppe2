@@ -179,22 +179,7 @@ body {
   margin-bottom: 12px;
 }
 
-.filter-search {
-  height: 24px;
-  border: 1px solid #002b68;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  padding: 0 7px;
-  margin-bottom: 13px;
-}
 
-.filter-search input {
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 9px;
-}
 
 .filter-search span {
   color: #002b68;
@@ -217,49 +202,6 @@ body {
   margin-top: 12px;
 }
 
-/* Toggle-knappene under filterlisten */
-.toggle-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.toggle-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 9px;
-  color: #555555;
-}
-
-.toggle {
-  width: 28px;
-  height: 14px;
-  background-color: #dddddd;
-  border-radius: 20px;
-  display: inline-block;
-  position: relative;
-}
-
-.toggle::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-}
-
-.toggle.active {
-  background-color: #8d9bff;
-}
-
-.toggle.active::after {
-  left: 16px;
-}
 
 
 /* KART */

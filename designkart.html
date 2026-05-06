@@ -8,8 +8,9 @@
 
   <title>KommuneKompasset</title>
 
-  <!-- Kobler HTML-filen til CSS-filen -->
+  <!-- Kobler HTML-filen til CSS-filene -->
   <link rel="stylesheet" href="designkart.css" />
+  <link rel="stylesheet" href="filter/filter.css">
 
   <!-- D3 brukes for å tegne Norge-kartet som SVG -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -74,38 +75,27 @@
 
       <!-- FILTERBOKS -->
       <aside class="filter-box">
-        <h3>Filtrer etter tema</h3>
 
-        <div class="filter-search">
-          <input type="text" placeholder="Søk etter tema..." />
-          <span>⌕</span>
-        </div>
+  
+  <h3>Filtrer etter tema</h3>
 
-        <!-- Filtervalgene er foreløpig visuelle -->
-        <label><input type="radio" name="theme" /> Populasjon</label>
-        <label><input type="radio" name="theme" /> Alder</label>
-        <label><input type="radio" name="theme" /> Migrasjon</label>
-        <label><input type="radio" name="theme" /> Inntekt</label>
-        <label><input type="radio" name="theme" checked /> Median boligpris</label>
-        <label><input type="radio" name="theme" /> Eldrekvekst</label>
-        <label><input type="radio" name="theme" /> Familievennlig</label>
-        <label><input type="radio" name="theme" /> Høy fraflytting</label>
+  <div class="filter-search">
+    <span>🔍</span>
+    <input type="text" id="filterSearch" placeholder="Søk etter tema..." />
+  </div>
 
-        <p>Basert på gjennomsnittet i Norge*</p>
+  <div class="filter-list" id="filterList"></div>
 
-        <!-- Toggle-knapper slik som i Figma-skissen -->
-        <div class="toggle-row">
-          <div class="toggle-item">
-            <span class="toggle"></span>
-            <span>Vis over</span>
-          </div>
+  <div class="filter-buttons">
+    <button id="showAboveBtn">Vis over snitt</button>
+    <button id="showBelowBtn">Vis under snitt</button>
+    <button id="resetBtn">Nullstill</button>
+  </div>
+</div>
 
-          <div class="toggle-item">
-            <span class="toggle active"></span>
-            <span>Vis under</span>
-          </div>
-        </div>
-      </aside>
+</aside>
+
+
 
 
       <!-- KART -->
@@ -169,6 +159,9 @@
 
   <!-- Kobler HTML-filen til JavaScript-filen -->
   <script src="designkart.js"></script>
+
+<!-- Kobler HTML-filen til JavaScript-filen for filterfunksjonalitet -->
+  <script src="filter/filter.js"></script>
 
 </body>
 </html>
