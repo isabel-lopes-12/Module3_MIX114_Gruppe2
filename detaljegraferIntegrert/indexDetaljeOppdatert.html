@@ -4,22 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kommune Dashboard</title>
-
-    <header class="site-header">
-  <div class="header-left">
-    
-
-    <div class="brand-text">
-      <h1>KommuneKompasset</h1>
-      <p>Bak tallene. Foran beslutningene.</p>
-    </div>
-  </div>
-
-  <nav class="nav-menu">
-    <a href="index.html" class="nav-link">Hjem</a>
-    <a href="om-oss.html" class="nav-link">Om oss</a>
-  </nav>
-</header>
     
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="stylesheet" href="styleDetaljeOppdatert.css">
@@ -28,21 +12,44 @@
 </head>
 <body>
 
+    <!-- Headeren er toppen av nettsiden -->
+<header class="site-header">
+
+  <!-- Venstre del av headeren med logo og tekst -->
+  <div class="header-left">
+
+    <!-- Teksten ved siden av logoen -->
+    <div class="brand-text">
+      <h1>KommuneKompasset</h1>
+      <p>Bak tallene. Foran beslutningene.</p>
+    </div>
+  </div>
+
+  <!-- Navigasjonsmenyen til høyre i headeren -->
+  <nav class="nav-menu">
+    <a href="/designkart.html" class="nav-link">Hjem</a>
+    <a href="/designkart.html" class="nav-link">Om oss</a>
+  </nav>
+</header>
+
     <header>
         <h1 id="title">Laster...</h1>
     </header>
 
+    <section class="ai-button-section">
+      <button id="ai-button" class="ai-btn">KI Oppsummering</button>
+    </section>
+
     <div class="topbar">
         <div class="select-wrapper">
             <select id="kommuneSelect"></select>
+            <br>
+            <br>    
+            <p>Sist oppdatert: <b>Mai 2026</b></p>
         </div>
     </div>
 
 <div id="loader">Laster...</div>
-
-<section class="ai-button-section">
-  <button id="ai-button" class="ai-btn">KI Oppsummering</button>
-</section>
 
 <main id="app" style="display:none">
 
@@ -54,7 +61,6 @@
 
     <div id="grid" class="grid"></div>
 
-
     <div class="AI-container">
       <div class="ai-header">
         <img src="images/ai-pic.png" alt="AI Illustration" class="ai-illustration"/>
@@ -62,22 +68,28 @@
     </div>
       <p id="AI-summary">Laster...</p>
     </div>
-
 </main>
 
-<script src="scriptDetaljeOppdatert.js"></script>
-</body>
 
+<!-- Footeren er bunnen av nettsiden -->
 <footer class="site-footer">
+
+  <!-- Midtstilt innhold i footeren -->
   <div class="footer-center">
+
+    <!-- Logo og navn i footeren -->
     <div class="footer-brand">
-      
       <span>KommuneKompasset</span>
     </div>
 
+    <!-- Gruppeinformasjon -->
     <p>© Gruppe 2</p>
   </div>
 
+  <!-- Tekst helt til høyre i footeren -->
   <p class="footer-source">Tall hentet fra SSB/KOSTRA</p>
 </footer>
+
+<script src="scriptDetaljeOppdatert.js"></script>
+</body>
 </html>
