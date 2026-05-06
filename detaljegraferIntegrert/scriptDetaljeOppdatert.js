@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let fodselsrate = null // Global variabel for fødselsrate
+let fodselsrate = 1.6 // Global variabel for fødselsrate
 
 const DATA_API =
     "https://data.ssb.no/api/pxwebapi/v2/tables/07459/data";
@@ -321,7 +321,7 @@ async function hentAISummary() {
                 kritisk: kritisk,
                 presset: presset,
                 bra: bra,
-                fodselsrate: sisteFodselsrate
+                fodselsrate: fodselsrate
             })
         });
 
