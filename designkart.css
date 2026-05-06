@@ -25,14 +25,14 @@ body {
   padding: 0 28px;
 }
 
-/* Logo og tekst på venstre side */
+/* Venstre del av headeren med logo og tekst */
 .header-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Logo i header */
+/* Logo i headeren */
 .logo {
   width: 42px;
   height: 42px;
@@ -54,7 +54,7 @@ body {
   margin-top: 4px;
 }
 
-/* Navigasjon */
+/* Navigasjon i headeren */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -79,7 +79,7 @@ body {
   background-color: white;
 }
 
-/* Toppseksjon med tittel, søk og knapp */
+/* Øverste del med tittel, søk og knapp */
 .hero {
   text-align: center;
   padding-top: 52px;
@@ -91,7 +91,7 @@ body {
   margin-bottom: 22px;
 }
 
-/* Søkefelt */
+/* Søkefeltet */
 .search-box {
   width: 280px;
   height: 34px;
@@ -116,8 +116,9 @@ body {
   font-size: 11px;
 }
 
-/* Sammenlign-knapp */
+/* Sammenlign-knappen */
 .compare-btn {
+  display: inline-block;
   margin-top: 24px;
   background-color: #002b68;
   color: white;
@@ -126,22 +127,18 @@ body {
   padding: 10px 18px;
   font-size: 11px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .compare-btn:hover {
   background-color: #001f4d;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .compare-btn span {
   margin-left: 8px;
 }
 
-/* Kort forklarende tekst */
+/* Kort intro-tekst under knappen */
 .intro-text {
   max-width: 650px;
   margin: 26px auto 0;
@@ -220,6 +217,50 @@ a {
   margin-top: 12px;
 }
 
+/* Toggle-knappene under filterlisten */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: #555555;
+}
+
+.toggle {
+  width: 28px;
+  height: 14px;
+  background-color: #dddddd;
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.toggle::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle.active {
+  background-color: #8d9bff;
+}
+
+.toggle.active::after {
+  left: 16px;
+}
+
 
 /* KART */
 
@@ -242,31 +283,31 @@ a {
   stroke: #ffffff;
   stroke-width: 0.55;
   cursor: pointer;
-  transition: fill 0.15s ease, stroke-width 0.15s ease;
+  transition: fill 0.15s ease, stroke-width 0.15s ease, opacity 0.15s ease;
 }
 
-/* Når man holder musepekeren over en kommune */
+/* Kommunene blir tydeligere når man hover over dem */
 .municipality:hover {
   fill: #8f8f8f;
   stroke: #002b68;
   stroke-width: 1.4;
 }
 
-/* Kommunen som er klikket på */
+/* Kommunen man klikker på blir rød */
 .municipality.selected {
   fill: #970000;
   stroke: #002b68;
   stroke-width: 1.2;
 }
 
-/* Nabokommunene rundt valgt kommune */
+/* Nabokommunene rundt valgt kommune blir blå */
 .municipality.neighbor {
   fill: #00306d;
   stroke: #ffffff;
   stroke-width: 0.8;
 }
 
-/* Liten boks som viser kommunenavn ved hover */
+/* Tooltip som viser kommunenavn ved hover */
 .tooltip {
   position: absolute;
   background-color: white;
@@ -307,7 +348,8 @@ a {
   line-height: 1.4;
 }
 
-.municipality-card button {
+.read-more-btn {
+  display: inline-block;
   background-color: #002b68;
   color: white;
   border: none;
@@ -315,10 +357,28 @@ a {
   padding: 10px 18px;
   font-size: 14px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.municipality-card button:hover {
+.read-more-btn:hover {
   background-color: #001f4d;
+}
+
+
+/* INFOTEKST OVER FOOTER */
+
+.bottom-info {
+  width: 100%;
+  background-color: #f3f3f3;
+  padding: 58px 20px;
+  text-align: center;
+}
+
+.bottom-info p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 
@@ -408,6 +468,11 @@ a {
 
   .intro-text {
     font-size: 11px;
+    padding: 0 10px;
+  }
+
+  .map-wrapper {
+    height: 500px;
   }
 
   .site-footer {
