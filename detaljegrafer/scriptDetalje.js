@@ -121,49 +121,85 @@ function lagGrafer(years, baseData) {
     const datasets = lagDatasett(baseData);
 
     datasets.forEach((data, i) => {
+
         grid.insertAdjacentHTML("beforeend", `
             <div class="card">
-        <div class="chart-box">
-            <div id="chart${i}" class="chart"></div>
-        </div>
-        <div class="title">${titles[i]}</div>
-        <div class="bullets">
-            • ${bullets[i][0]}<br>
-            • ${bullets[i][1]}<br>
-            • ${bullets[i][2]}
+                <div class="chart-box">
+                    <div id="chart${i}" class="chart"></div>
+                </div>
+
+                <div class="title">${titles[i]}</div>
+
+                <div class="bullets">
+                    • ${bullets[i][0]}<br>
+                    • ${bullets[i][1]}<br>
+                    • ${bullets[i][2]}
+                </div>
             </div>
-        </div>
-    `);
+        `);
 
-    Highcharts.chart("chart" + i, {
-        chart: { backgroundColor: "transparent" },
-        title: { text: "" },
-        credits: { enabled: false },
-        legend: { enabled: false },
-        xAxis: { categories: years },
-        yAxis: { title: { text: null }, gridLineColor: "#eee" },
+        Highcharts.chart("chart" + i, {
 
-        tooltip: {
-        formatter: function () {
-            const y = this.y;
+            chart: {
+                backgroundColor: "transparent"
+            },
 
-            if (i === 2 || i === 7 || i === 8)
-                return `<b>${this.category}</b><br>${y.toFixed(1)}%`;
+            title: {
+                text: ""
+            },
 
-            if (i === 3 || i === 6)
-                return `<b>${this.category}</b><br>${y.toFixed(2)}`;
+            credits: {
+                enabled: false
+            },
 
-            return `<b>${this.category}</b><br>${Math.round(y).toLocaleString("no-NO")}`;
-        }
-        },
+            legend: {
+                enabled: false
+            },
 
-        series: [{
-            data: data,
-            color: "#111"
-        }]
-    });
+            xAxis: {
+                categories: years
+            },
+
+            yAxis: {
+                title: {
+                    text: null
+                },
+
+                gridLineColor: "#eee",
+
+                ...(i === 4 && {
+                    min: 650,
+                    max: 750,
+                    tickInterval: 50,
+
+                    labels: {
+                        formatter: function () {
+                            return this.value + "k";
+                        }
+                    }
+                })
+            },
+
+            tooltip: {
+                formatter: function () {
+
+                    if (i === 4) {
+                        return `<b>${this.category}</b><br>${this.y}k`;
+                    }
+
+                    return `<b>${this.category}</b><br>${Math.round(this.y)}`;
+                }
+            },
+
+            series: [{
+                data: data,
+                color: "#111"
+            }]
+        });
+
     });
 }
+
 
 function vurder(data) {
     const første = data[0];
