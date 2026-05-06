@@ -1,43 +1,142 @@
-<!-- Headeren er toppen av nettsiden -->
-<header class="site-header">
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
 
-  <!-- Venstre del av headeren med logo og tekst -->
-  <div class="header-left">
+  <!-- Gjør nettsiden responsiv på mobil og ulike skjermstørrelser -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Logoen til KommuneKompasset -->
-    <img src="logo.png" alt="KommuneKompasset logo" class="logo" />
+  <title>KommuneKompasset</title>
 
-    <!-- Teksten ved siden av logoen -->
-    <div class="brand-text">
-      <h1>KommuneKompasset</h1>
-      <p>Bak tallene. Foran beslutningene.</p>
+  <!-- Kobler til CSS-filen -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- D3 brukes for å tegne Norge-kartet -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+  <!-- Turf brukes for å finne nabokommuner -->
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <!-- Venstre side av header med logo og tekst -->
+    <div class="header-left">
+      <img src="logo.png" alt="KommuneKompasset logo" class="logo" />
+
+      <div class="brand-text">
+        <h1>KommuneKompasset</h1>
+        <p>Bak tallene. Foran <em>beslutningene.</em></p>
+      </div>
     </div>
-  </div>
 
-  <!-- Navigasjonsmenyen til høyre i headeren -->
-  <nav class="nav-menu">
-    <a href="index.html" class="nav-link">Hjem</a>
-    <a href="om-oss.html" class="nav-link">Om oss</a>
-  </nav>
-</header>
+    <!-- Navigasjon til høyre -->
+    <nav class="nav-menu">
+      <a href="index.html">Hjem</a>
+      <a href="#">Om oss</a>
+    </nav>
+
+  </header>
 
 
-<!-- Footeren er bunnen av nettsiden -->
-<footer class="site-footer">
+  <!-- HOVEDINNHOLD -->
+  <main class="frontpage">
 
-  <!-- Midtstilt innhold i footeren -->
-  <div class="footer-center">
+    <!-- Øverste del med tittel, søk og knapp -->
+    <section class="hero">
+      <h2>Bak tallene. Foran <em>beslutningene.</em></h2>
 
-    <!-- Logo og navn i footeren -->
-    <div class="footer-brand">
-      <img src="logo.png" alt="KommuneKompasset logo" class="footer-logo" />
-      <span>KommuneKompasset</span>
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" placeholder="Søk etter kommune..." />
+      </div>
+
+      <button class="compare-btn">
+        Sammenlign <span>➜</span>
+      </button>
+
+      <p class="intro-text">
+        Kommunekompasset er et verktøy hvor data om kommuner er samlet på ett sted
+        for å gjøre sammenligninger og informasjonsinnhenting så enkelt som mulig.
+      </p>
+    </section>
+
+
+    <!-- Område med filter, kart og kommune-kort -->
+    <section class="map-section">
+
+      <!-- FILTERBOKS -->
+      <aside class="filter-box">
+        <h3>Filtrer etter tema</h3>
+
+        <div class="filter-search">
+          <input type="text" placeholder="Søk etter tema..." />
+          <span>⌕</span>
+        </div>
+
+        <label><input type="radio" name="theme" /> Populasjon</label>
+        <label><input type="radio" name="theme" /> Alder</label>
+        <label><input type="radio" name="theme" /> Migrasjon</label>
+        <label><input type="radio" name="theme" /> Inntekt</label>
+        <label><input type="radio" name="theme" checked /> Median boligpris</label>
+        <label><input type="radio" name="theme" /> Eldrekvekst</label>
+        <label><input type="radio" name="theme" /> Familievennlig</label>
+        <label><input type="radio" name="theme" /> Høy fraflytting</label>
+
+        <p>Basert på gjennomsnittet i Norge*</p>
+      </aside>
+
+
+      <!-- KART -->
+      <div class="map-wrapper">
+
+        <!-- Her tegnes kartet med JavaScript -->
+        <svg id="norwayMap"></svg>
+
+        <!-- Denne vises når man hover over en kommune -->
+        <div id="tooltip" class="tooltip"></div>
+
+      </div>
+
+
+      <!-- KOMMUNEKORT -->
+      <aside class="municipality-card">
+        <h3 id="selectedName">Velg kommune</h3>
+
+        <p id="selectedInfo">
+          Klikk på en kommune i kartet.
+        </p>
+
+        <button>Se mer!</button>
+      </aside>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-center">
+      <div class="footer-brand">
+        <img src="logo.png" alt="KommuneKompasset logo" />
+        <span>KommuneKompasset</span>
+      </div>
+
+      <p>© Gruppe 2</p>
     </div>
 
-    <!-- Gruppeinformasjon -->
-    <p>© Gruppe 2</p>
-  </div>
+    <p class="footer-source">Tall hentet fra SSB/KOSTRA</p>
 
-  <!-- Tekst helt til høyre i footeren -->
-  <p class="footer-source">Tall hentet fra SSB/KOSTRA</p>
-</footer>
+  </footer>
+
+
+  <!-- Kobler til JavaScript-filen -->
+  <script src="script.js"></script>
+
+</body>
+</html>
