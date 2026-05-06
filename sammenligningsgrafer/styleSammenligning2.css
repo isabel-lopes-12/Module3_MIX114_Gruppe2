@@ -224,3 +224,92 @@ h3 {
 #chart {
     height: 400px;
 }
+
+
+/* Selve footeren nederst på siden */
+.site-footer {
+  width: 100%;
+  height: 58px;
+  background-color: #062b66; /* Mørk blå farge slik som i Figma */
+  color: #ffffff;
+  position: relative; /* Gjør at teksten til høyre kan plasseres absolutt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Innholdet som ligger i midten av footeren */
+.footer-center {
+  text-align: center;
+}
+
+/* Logo og navn i footeren */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+/* Mindre logo i footeren */
+.footer-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Copyright-tekst under logoen */
+.footer-center p {
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+/* Teksten til høyre i footeren */
+.footer-source {
+  position: absolute;
+  right: 28px;
+  bottom: 18px;
+  font-size: 8px;
+  color: #ffffff;
+}
+
+
+/* RESPONSIV DESIGN */
+
+
+/* Denne delen gjør header og footer bedre på små skjermer */
+@media (max-width: 600px) {
+
+  /* Headeren blir høyere og innholdet legges under hverandre */
+  .site-header {
+    height: auto;
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Litt mindre avstand mellom menylenkene på mobil */
+  .nav-menu {
+    gap: 18px;
+  }
+
+  /* Litt mindre tittel på mobil */
+  .brand-text h1 {
+    font-size: 19px;
+  }
+
+  /* Footeren får mer luft og tilpasser seg mobil */
+  .site-footer {
+    height: auto;
+    padding: 16px 18px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Kildeteksten flyttes fra høyre side til normal plassering på mobil */
+  .footer-source {
+    position: static;
+    font-size: 8px;
+  }
+}
