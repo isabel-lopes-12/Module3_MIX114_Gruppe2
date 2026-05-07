@@ -10,6 +10,8 @@ const filters = [
 
 let selectedFilter = null;
 let activeButton = null;
+let kommuneData = {};
+let mapReady = false;
 
 const filterList = document.getElementById("filterList");
 const filterSearch = document.getElementById("filterSearch");

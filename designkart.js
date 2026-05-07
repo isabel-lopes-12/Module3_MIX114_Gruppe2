@@ -152,7 +152,9 @@ function drawMap() {
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
   // Lager kartprojeksjon som tilpasser Norge til boksen
-  const projection = d3.geoMercator().fitSize([width, height], geoData);
+  const projection = d3.geoIdentity()
+  .reflectY(true)
+  .fitSize([width, height], geoData);
 
   // Gjør GeoJSON-data om til SVG-former
   pathGenerator = d3.geoPath().projection(projection);
@@ -188,6 +190,11 @@ function drawMap() {
 
     // Klikk på kommune markerer valgt kommune og nabokommunene
     .on("click", selectMunicipality);
+
+    // Sender en melding til filter.js om at kartet er klart, og inkluderer alle kommunene som data
+    document.dispatchEvent(new CustomEvent("mapReady", 
+      { detail: { features: geoData.features}
+    }));
 }
 
 

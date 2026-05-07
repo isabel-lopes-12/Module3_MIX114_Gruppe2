@@ -13,7 +13,7 @@
 .filter-panel h3 {
   font-size: 18px;
   margin-bottom: 14px;
-  color: #1b2a4a;
+  color: #00205B; 
 }
 
 .filter-search {
@@ -60,9 +60,9 @@
 }
 
 .filter-item.active {
-  background: #1b2a4a;
+  background: #00205B;
   color: white;
-  border-color: #1b2a4a;
+  border-color: #00205B;
 }
 
 .filter-buttons {
@@ -75,16 +75,16 @@
   padding: 10px;
   border: none;
   border-radius: 20px;
-  background: #6b0000;
+  background: #7b0000;
   color: white;
   font-weight: 600;
   cursor: pointer;
 }
 
 .filter-buttons button:hover {
-  background: #820000;
+  background: #a91d1d;
 }
 
 .filter-buttons button.active {
-  background: #1b2a4a;
+  background: #00205B;
 }
