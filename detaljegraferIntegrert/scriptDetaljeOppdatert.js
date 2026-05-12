@@ -1,3 +1,7 @@
+function getKommuneFraURL() {
+    return new URLSearchParams(window.location.search).get("kommune");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".nav-link");
