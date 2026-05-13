@@ -90,16 +90,16 @@ body {
   gap: 24px;
 }
 
-.nav-link {
+.nav-menu a {
   color: var(--color-card);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  
 }
 
-.nav-link:hover {
-  opacity: 0.75;
+.nav-menu a:hover {
+  opacity: 0.8;
 }
 
 .nav-link.active {
@@ -181,12 +181,6 @@ body {
   }
 }
 
-    body {
-    font-family: var(--font-body);
-    background: var(--color-background);
-    color: var(--color-text);
-    margin: 0;
-}
 
 h1, h2, h3 {
     font-family: var(--font-heading);
@@ -364,7 +358,7 @@ select:focus {
 } 
 
 #ai-button {
-  font-weight: 400;
+  font-weight: 500;
   font-family: var(--font-body);
 }
 

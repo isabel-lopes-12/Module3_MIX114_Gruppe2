@@ -99,7 +99,9 @@
   border-radius: 20px;
   background: #7b0000;
   color: white;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
 }
 

@@ -35,13 +35,6 @@
     --radius-lg: 12px;
 }
 
-body {
-    margin: 0;
-    font-family: var(--font-body);
-    background: var(--color-background);
-    color: var(--color-text);
-}
-
 .container {
     max-width: 1100px;
     margin: 60px auto;
@@ -57,7 +50,7 @@ body {
 
 /* Grunnstil for hele nettsiden */
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   background-color: var(--color-card);
   color: var(--color-text);
 }
@@ -115,7 +108,7 @@ body {
 }
 
 /* Lenker i menyen */
-.nav-link {
+.nav-menu a {
   color: #ffffff;
   text-decoration: none; /* Fjerner understrek på lenkene */
   font-size: 17px;
@@ -124,7 +117,7 @@ body {
 }
 
 /* Når man holder musepekeren over lenkene */
-.nav-link:hover {
+.nav-menu a:hover {
   opacity: 0.8;
 }
 
