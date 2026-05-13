@@ -1,6 +1,6 @@
 :root {
   /* Base colors */
-    --color-primary: #8B0000;
+    --color-primary: #7B0000;
     --color-secondary: #0B2A5B;
     --color-background: #F8F9FB;
 
@@ -41,8 +41,8 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
+  font-family: var(--font-heading);
+  background-color: var(--color-background);
   color: #111;
 }
 
@@ -51,7 +51,7 @@ body {
 .site-header {
   width: 100%;
   height: 64px;
-  background-color: #970000;
+  background-color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,14 +71,14 @@ body {
 }
 
 .brand-text h1 {
-  color: #ffffff;
+  color: var(--color-card);
   font-size: 21px;
   font-weight: 700;
   line-height: 1;
 }
 
 .brand-text p {
-  color: #ffffff;
+  color: var(--color-card);
   font-size: 8px;
   margin-top: 4px;
   font-style: italic;
@@ -91,7 +91,7 @@ body {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: var(--color-card);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -111,8 +111,8 @@ body {
 .site-footer {
   width: 100%;
   height: 58px;
-  background-color: #062b66;
-  color: #ffffff;
+  background-color: var(--color-secondary);
+  color: var(--color-card);
   position: relative;
   display: flex;
   align-items: center;
@@ -147,7 +147,7 @@ body {
   right: 28px;
   bottom: 18px;
   font-size: 8px;
-  color: #ffffff;
+  color: var(--color-card);
 }
 
 /* RESPONSIVE */
@@ -351,7 +351,7 @@ select:focus {
 
 .ai-btn {
     background: var(--color-secondary);
-    color: white;
+    color: var(--color-card);
     border: none;
     padding: 10px 20px;
     border-radius: var(--radius-md);

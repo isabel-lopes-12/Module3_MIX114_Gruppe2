@@ -1,3 +1,40 @@
+:root {
+  /* Base colors */
+    --color-primary: #7B0000;
+    --color-secondary: #0B2A5B;
+    --color-background: #F8F9FB;
+
+    /* Semantic colors */
+    --color-error: #E06666;
+    --color-warning: #E89A5B;
+    --color-success: #6BC29A;
+
+    /* RGB (for opacity) */
+    --color-error-rgb: 224, 102, 102;
+    --color-warning-rgb: 232, 154, 91;
+    --color-success-rgb: 107, 194, 154;
+
+    /* Text + UI */
+    --color-text: #111;
+    --color-text-muted: #555;
+    --color-card: #ffffff;
+    --color-border: #eaeaea;
+
+    /* Fonts */
+    --font-heading: "Readex Pro", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Typography */
+    --h1-size: 64px;
+    --h2-size: 32px;
+    --h3-size: 24px;
+    --body-size: 16px;
+
+    /* Radius */
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    }
+
 /* Fjerner standard margin og padding fra nettleseren */
 * {
   margin: 0;
@@ -7,9 +44,9 @@
 
 /* Grunnstil for hele nettsiden */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #111111;
+  font-family: var(--font-heading);
+  background-color: var(--color-card);
+  color: var(--color-text);
 }
 
 
@@ -18,7 +55,7 @@ body {
 .site-header {
   width: 100%;
   height: 64px;
-  background-color: #7B0000;
+  background-color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +78,7 @@ body {
 
 /* KommuneKompasset-tekst */
 .brand-text h1 {
-  color: white;
+  color: var(--color-card);
   font-size: 23px;
   font-weight: 700;
   line-height: 1;
@@ -49,7 +86,7 @@ body {
 
 /* Slagord under logo-teksten */
 .brand-text p {
-  color: white;
+  color: var(--color-card);
   font-size: 8px;
   margin-top: 4px;
 }
@@ -62,7 +99,7 @@ body {
 }
 
 .nav-menu a {
-  color: white;
+  color: var(--color-card);
   text-decoration: none;
   font-size: 17px;
   font-weight: 500;
@@ -76,7 +113,7 @@ body {
 /* FORSIDE */
 
 .frontpage {
-  background-color: white;
+  background-color: var(--color-card);
 }
 
 /* Øverste del med tittel, søk og knapp */
@@ -95,7 +132,7 @@ body {
 .search-box {
   width: 280px;
   height: 34px;
-  border: 1.5px solid #00205B;
+  border: 1.5px solid var(--color-secondary);
   border-radius: 20px;
   margin: 0 auto;
   display: flex;
@@ -105,7 +142,7 @@ body {
 }
 
 .search-icon {
-  color: #00205B;
+  color: var(--color-secondary);
   font-size: 20px;
 }
 
@@ -120,8 +157,8 @@ body {
 .compare-btn {
   display: inline-block;
   margin-top: 24px;
-  background-color: #00205B;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-card);
   border: none;
   border-radius: 18px;
   padding: 10px 18px;
@@ -131,7 +168,7 @@ body {
 }
 
 .compare-btn:hover {
-  background-color: #001f4d;
+  background-color: var(--color-secondary);
 }
 
 .compare-btn span {
@@ -188,21 +225,21 @@ body {
 /* Kommunene blir tydeligere når man hover over dem */
 .municipality:hover {
   fill: #8f8f8f;
-  stroke: #00205B;
+  stroke: var(--color-secondary);
   stroke-width: 1.4;
 }
 
 /* Kommunen man klikker på blir rød */
 .municipality.selected {
-  fill: #7B0000;
-  stroke: #00205B;
+  fill: var(--color-primary);
+  stroke: var(--color-secondary);
   stroke-width: 1.2;
 }
 
 /* Nabokommunene rundt valgt kommune blir blå */
 .municipality.neighbor {
-  fill: #00306d;
-  stroke: #ffffff;
+  fill: var(--color-secondary);
+  stroke: var(--color-card);
   stroke-width: 0.8;
 }
 
@@ -210,11 +247,11 @@ body {
 .tooltip {
   position: absolute;
   background-color: white;
-  border: 1px solid #00205B;
+  border: 1px solid var(--color-secondary);
   border-radius: 6px;
   padding: 6px 9px;
   font-size: 11px;
-  color: #00205B;
+  color: var(--color-secondary);
   pointer-events: none;
   opacity: 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
