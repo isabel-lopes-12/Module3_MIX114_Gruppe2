@@ -163,62 +163,177 @@ function lagGrafer(years, baseData) {
 
         Highcharts.chart("chart" + i, {
 
-            chart: {
-                backgroundColor: "transparent"
-            },
+    chart: {
 
-            title: {
-                text: ""
-            },
+        type: "areaspline",
 
-            credits: {
-                enabled: false
-            },
+        backgroundColor: "transparent",
 
-            legend: {
-                enabled: false
-            },
+        spacing: [10, 10, 10, 10],
 
-            xAxis: {
-                categories: years
-            },
+        style: {
+            fontFamily: "Inter, sans-serif"
+        }
+    },
 
-            yAxis: {
-                title: {
-                    text: null
+    title: {
+        text: ""
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    xAxis: {
+
+        categories: years,
+
+        lineColor: "#e5e7eb",
+
+        tickColor: "#e5e7eb",
+
+        labels: {
+
+            style: {
+                color: "#6b7280",
+                fontSize: "11px"
+            }
+        }
+    },
+
+    yAxis: {
+
+        title: {
+            text: null
+        },
+
+        gridLineColor: "#f3f4f6",
+
+        gridLineDashStyle: "Dash",
+
+        labels: {
+
+            style: {
+                color: "#9ca3af",
+                fontSize: "11px"
+            }
+        },
+
+        ...(i === 4 && {
+
+            min: 650,
+            max: 750,
+            tickInterval: 50,
+
+            labels: {
+
+                formatter: function () {
+                    return this.value + "k";
                 },
 
-                gridLineColor: "#eee",
+                style: {
+                    color: "#9ca3af",
+                    fontSize: "11px"
+                }
+            }
+        })
+    },
 
-                ...(i === 4 && {
-                    min: 650,
-                    max: 750,
-                    tickInterval: 50,
+    tooltip: {
 
-                    labels: {
-                        formatter: function () {
-                            return this.value + "k";
-                        }
-                    }
-                })
+        backgroundColor: "#111827",
+
+        borderWidth: 0,
+
+        borderRadius: 14,
+
+        shadow: false,
+
+        style: {
+            color: "#fff"
+        },
+
+        formatter: function () {
+
+            if (i === 4) {
+
+                return `
+                    <div style="padding:4px">
+                        <b>${this.category}</b><br>
+                        ${this.y}k
+                    </div>
+                `;
+            }
+
+            return `
+                <div style="padding:4px">
+                    <b>${this.category}</b><br>
+                    ${Math.round(this.y)}
+                </div>
+            `;
+        }
+    },
+
+    plotOptions: {
+
+        series: {
+
+            animation: {
+                duration: 700
             },
 
-            tooltip: {
-                formatter: function () {
+            lineWidth: 3,
 
-                    if (i === 4) {
-                        return `<b>${this.category}</b><br>${this.y}k`;
+            marker: {
+
+                enabled: false,
+
+                states: {
+
+                    hover: {
+
+                        enabled: true,
+                        radius: 4
                     }
-
-                    return `<b>${this.category}</b><br>${Math.round(this.y)}`;
                 }
             },
 
-            series: [{
-                data: data,
-                color: "#111"
-            }]
-        });
+            states: {
+
+                hover: {
+
+                    lineWidth: 4
+                }
+            }
+        },
+
+        areaspline: {
+
+            fillOpacity: 0.08
+        }
+    },
+
+    series: [{
+
+        data: data,
+
+        color: [
+            "#4f46e5",
+            "#7c3aed",
+            "#0891b2",
+            "#ea580c",
+            "#059669",
+            "#dc2626",
+            "#db2777",
+            "#0284c7",
+            "#65a30d"
+        ][i]
+    }]
+});
 
     });
 }
