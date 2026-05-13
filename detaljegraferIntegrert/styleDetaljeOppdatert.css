@@ -90,7 +90,7 @@ body {
   gap: 24px;
 }
 
-.nav-link {
+.nav-menu a {
   color: var(--color-card);
   text-decoration: none;
   font-size: 17px;
@@ -98,7 +98,7 @@ body {
   
 }
 
-.nav-link:hover {
+.nav-menu a:hover {
   opacity: 0.8;
 }
 
@@ -181,12 +181,6 @@ body {
   }
 }
 
-    body {
-    font-family: var(--font-body);
-    background: var(--color-background);
-    color: var(--color-text);
-    margin: 0;
-}
 
 h1, h2, h3 {
     font-family: var(--font-heading);
