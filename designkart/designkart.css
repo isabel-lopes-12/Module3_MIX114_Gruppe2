@@ -109,6 +109,9 @@ body {
   opacity: 0.8;
 }
 
+.nav-link.active {
+  font-weight: 700;
+}
 
 /* FORSIDE */
 
