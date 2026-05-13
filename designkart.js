@@ -3,6 +3,8 @@
 const geoJsonUrl =
   "https://cdn.jsdelivr.net/gh/robhop/fylker-og-kommuner@main/Kommuner-M.geojson";
 
+let valgtKommune = null;
+
 // Henter SVG-elementet hvor kartet skal tegnes
 const svg = d3.select("#norwayMap");
 
@@ -106,6 +108,15 @@ function findNeighborMunicipalities(clickedFeature) {
   og nabokommunene blå.
 */
 function selectMunicipality(event, feature) {
+
+  valgtKommune = {
+    navn: getMunicipalityName(feature),
+    kode: String(
+      feature.properties.kommunenummer ||
+      feature.properties.KOMMUNENUMMER
+    )
+  };
+
   // Fjerner gamle markeringer
   d3.selectAll(".municipality")
     .classed("selected", false)
@@ -118,7 +129,9 @@ function selectMunicipality(event, feature) {
   const neighbors = findNeighborMunicipalities(feature);
 
   // Lager en liste med ID-ene til nabokommunene
-  const neighborIds = neighbors.map((neighbor) => getMunicipalityId(neighbor));
+  const neighborIds = neighbors.map((neighbor) =>
+    getMunicipalityId(neighbor)
+  );
 
   // Marker alle nabokommuner med blå farge
   d3.selectAll(".municipality").classed("neighbor", function (d) {
@@ -152,7 +165,9 @@ function drawMap() {
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
   // Lager kartprojeksjon som tilpasser Norge til boksen
-  const projection = d3.geoMercator().fitSize([width, height], geoData);
+  const projection = d3.geoIdentity()
+  .reflectY(true)
+  .fitSize([width, height], geoData);
 
   // Gjør GeoJSON-data om til SVG-former
   pathGenerator = d3.geoPath().projection(projection);
@@ -188,6 +203,11 @@ function drawMap() {
 
     // Klikk på kommune markerer valgt kommune og nabokommunene
     .on("click", selectMunicipality);
+
+    // Sender en melding til filter.js om at kartet er klart, og inkluderer alle kommunene som data
+    document.dispatchEvent(new CustomEvent("mapReady", 
+      { detail: { features: geoData.features}
+    }));
 }
 
 
@@ -261,4 +281,18 @@ searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     searchMunicipality();
   }
+});
+
+const readMoreBtn = document.getElementById("readMoreBtn");
+
+readMoreBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (!valgtKommune) {
+    alert("Velg en kommune først.");
+    return;
+  }
+
+  window.location.href =
+    `../detaljegraferIntegrert/indexDetaljeOppdatert.html?kommune=${valgtKommune.kode}`;
 });

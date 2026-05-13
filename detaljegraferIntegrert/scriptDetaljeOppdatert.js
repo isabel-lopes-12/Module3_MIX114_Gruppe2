@@ -1,3 +1,7 @@
+function getKommuneFraURL() {
+    return new URLSearchParams(window.location.search).get("kommune");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".nav-link");
@@ -118,7 +122,7 @@ function lagDatasett(baseRaw) {
 const titles = [
     "👥 Populasjon","🎂 Alder","🔄 Migrasjon",
     "🏠 Boligpris","💰 Inntekt","👴 Eldrevekst",
-    "👶 Fødselsrate","📉 Fraflytting","➕ Flyttebalanse"
+    "👶 Fødselsrate","📉 Fraflytting","🏢 Sysselsetting"
 ];
 
 const bullets = [
@@ -130,7 +134,7 @@ const bullets = [
     ["Eldreandel","Økende = press","Helse"],
     ["Fødselsrate","Fallende trend","Langsiktig"],
     ["Utflytting","Tap av innbyggere","Mobilitet"],
-    ["Flyttebalanse (%)","Inn vs ut","Netto"]
+    ["Arbeidsmarkedet i kommunen","Viser kompetanse og attraktivitet","Antall i jobb"]
 ];
 
 function lagGrafer(years, baseData) {
