@@ -9,7 +9,7 @@ const SSB_URL =
   { id: "KOSfodde0000", label: "Fødte", unit: "personer" },
   { id: "KOSdode0000", label: "Døde", unit: "personer" },
   { id: "KOSuforepensjoni0000", label: "Uførhet", unit: "personer" },
-  { id: "KOSsamlafruktbar0000", label: "Fruktbarhet", unit: "barn per kvinne" },
+  { id: "KOSsamlafruktbar0000", label: "Fødselsrate", unit: "barn per kvinne" },
   { id: "KOSfvlevealderkv0000", label: "Levealder kvinner", unit: "år" },
   { id: "KOSfvlevealderme0000", label: "Levealder menn", unit: "år" }
 ];
@@ -201,7 +201,7 @@ function getMunicipalityDataHtml(kommuneNr, name) {
       </div>
 
       <div class="key-row">
-        <span>Fruktbarhet:</span>
+        <span>Fødselsrate:</span>
         <strong>${formatValue(data.KOSsamlafruktbar0000)}</strong>
       </div>
     </div>

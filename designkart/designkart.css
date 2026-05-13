@@ -199,43 +199,6 @@ body {
 
 
 
-
-/* FILTERBOKS */
-
-.filter-box {
-  width: 210px;
-  border: 3px solid var(--color-secondary);
-  border-radius: 8px;
-  padding: 14px;
-  background-color: var(--color-card);
-  align-self: start;
-  
-}
-
-.filter-box h3 {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.filter-box label {
-  display: block;
-  font-size: 11px;
-  margin: 12px 0;
-}
-
-.filter-box input {
-  margin-right: 6px;
-}
-
-.filter-box p {
-  font-size: 9px;
-  color: #999999;
-  margin-top: 12px;
-}
-
-
-
 /* KART */
 
 .map-wrapper {
