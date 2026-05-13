@@ -44,6 +44,11 @@
 
 /* Grunnstil for hele nettsiden */
 body {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
   font-family: var(--font-heading);
   background-color: var(--color-card);
   color: var(--color-text);
@@ -60,6 +65,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Venstre del av headeren med logo og tekst */

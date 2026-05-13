@@ -68,6 +68,9 @@ body {
   align-items: center; /* Midtstiller innholdet vertikalt */
   justify-content: space-between; /* Plasserer logo til venstre og meny til høyre */
   padding: 0 28px; /* Luft på venstre og høyre side */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Området med logo og tekst */
