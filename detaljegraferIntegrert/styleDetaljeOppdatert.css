@@ -70,15 +70,17 @@ body {
   object-fit: contain;
 }
 
+/* Tittelen KommuneKompasset */
 .brand-text h1 {
-  color: var(--color-card);
-  font-size: 21px;
+  color: #ffffff;
+  font-size: 23px;
   font-weight: 700;
   line-height: 1;
 }
 
+/* Slagordet under tittelen */
 .brand-text p {
-  color: var(--color-card);
+  color: #ffffff;
   font-size: 8px;
   margin-top: 4px;
   font-style: italic;
@@ -104,6 +106,18 @@ body {
 
 .nav-link.active {
   font-weight: 700;
+}
+
+.nav-link {
+  text-decoration: none;  /* fjerner understrek */
+  color: inherit;         /* beholder tekstfarge */
+  display: block;         /* gjør hele området klikkbart */
+}
+
+.nav-link .header-left {
+  display: flex;          /* beholder layouten din */
+  align-items: center;
+  gap: 10px;              /* valgfritt */
 }
 
 /* FOOTER */

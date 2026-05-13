@@ -126,6 +126,18 @@ body {
   font-weight: 700;
 }
 
+.nav-link {
+  text-decoration: none;  /* fjerner understrek */
+  color: inherit;         /* beholder tekstfarge */
+  display: block;         /* gjør hele området klikkbart */
+}
+
+.nav-link .header-left {
+  display: flex;          /* beholder layouten din */
+  align-items: center;
+  gap: 10px;              /* valgfritt */
+}
+
 .top-row {
     display: flex;
     justify-content: space-between;
