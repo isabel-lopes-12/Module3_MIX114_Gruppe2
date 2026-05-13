@@ -60,6 +60,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Venstre del av headeren med logo og tekst */
@@ -274,7 +277,7 @@ body {
   padding: 20px 18px;
   background-color: white;
 
-  margin-top: 320px;
+  margin-top: 300px;
 }
 
 .municipality-card h3 {
