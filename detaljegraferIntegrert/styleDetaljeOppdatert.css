@@ -93,13 +93,13 @@ body {
 .nav-link {
   color: var(--color-card);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  
 }
 
 .nav-link:hover {
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .nav-link.active {

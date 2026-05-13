@@ -57,7 +57,7 @@ body {
 
 /* Grunnstil for hele nettsiden */
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   background-color: var(--color-card);
   color: var(--color-text);
 }

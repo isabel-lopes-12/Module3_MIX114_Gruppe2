@@ -1,39 +1,39 @@
 :root {
   /* Base colors */
-  --color-primary: #7B0000;
-  --color-secondary: #0B2A5B;
-  --color-background: #F8F9FB;
+    --color-primary: #7B0000;
+    --color-secondary: #0B2A5B;
+    --color-background: #F8F9FB;
 
-  /* Semantic colors */
-  --color-error: #E06666;
-  --color-warning: #E89A5B;
-  --color-success: #6BC29A;
+    /* Semantic colors */
+    --color-error: #E06666;
+    --color-warning: #E89A5B;
+    --color-success: #6BC29A;
 
-  /* RGB (for opacity) */
-  --color-error-rgb: 224, 102, 102;
-  --color-warning-rgb: 232, 154, 91;
-  --color-success-rgb: 107, 194, 154;
+    /* RGB (for opacity) */
+    --color-error-rgb: 224, 102, 102;
+    --color-warning-rgb: 232, 154, 91;
+    --color-success-rgb: 107, 194, 154;
 
-  /* Text + UI */
-  --color-text: #111;
-  --color-text-muted: #555;
-  --color-card: #ffffff;
-  --color-border: #eaeaea;
+    /* Text + UI */
+    --color-text: #111;
+    --color-text-muted: #555;
+    --color-card: #ffffff;
+    --color-border: #eaeaea;
 
-  /* Fonts */
-  --font-heading: "Readex Pro", sans-serif;
-  --font-body: "Inter", sans-serif;
+    /* Fonts */
+    --font-heading: "Readex Pro", sans-serif;
+    --font-body: "Inter", sans-serif;
 
-  /* Typography */
-  --h1-size: 64px;
-  --h2-size: 32px;
-  --h3-size: 24px;
-  --body-size: 16px;
+    /* Typography */
+    --h1-size: 64px;
+    --h2-size: 32px;
+    --h3-size: 24px;
+    --body-size: 16px;
 
-  /* Radius */
-  --radius-md: 10px;
-  --radius-lg: 12px;
-}
+    /* Radius */
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    }
 
 /* Fjerner standard margin og padding fra nettleseren */
 * {
@@ -44,14 +44,11 @@
 
 /* Grunnstil for hele nettsiden */
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   background-color: var(--color-card);
   color: var(--color-text);
-
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
+
 
 /* HEADER */
 
@@ -115,6 +112,7 @@ body {
 .nav-link.active {
   font-weight: 700;
 }
+
 
 /* OM OSS */
 
