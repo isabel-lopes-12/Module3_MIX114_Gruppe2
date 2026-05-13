@@ -221,8 +221,10 @@ h3 {
     font-size: var(--h3-size);
 }
 
-#chart {
+#chart1,
+#chart2 {
     height: 400px;
+    width: 100%;
 }
 
 
