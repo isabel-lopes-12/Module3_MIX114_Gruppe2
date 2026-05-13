@@ -135,6 +135,7 @@ function renderFilters(list) {
   });
 }
 
+//Filtrer kartdata basert på valgt filter og modus
 function applyFilterToMap() {
   if (!mapReady || !dataReady || !selectedFilter) return;
 

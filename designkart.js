@@ -171,6 +171,7 @@ function resetMapData() {
 }
 }
 
+
 function searchMunicipality() {
   if (!mapChart || !searchInput.value.trim()) return;
 
@@ -206,6 +207,7 @@ function normalizeCode(code) {
   return String(code || "").replace("K-", "").slice(-4);
 }
 
+//finne naboer ved hjelp av Turf.js
 function findNeighborCodes(clickedCode) {
   clickedCode = normalizeCode(clickedCode);
 
