@@ -152,44 +152,86 @@ h1 {
     font-family: var(--font-heading);
 }
 
+.title-group h1 {
+    font-size: var(--h1-size);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    margin: 0;
+}
+
+.title-group {
+    width: 100%;
+}
+
 .title-underline {
     width: 300px;
     height: 8px;
-    background: var(--color-primary);
+    background-color: var(--color-primary);
+
     margin-top: 10px;
-    border-radius: 4px;
+    margin-bottom: 10px;
+
+    border-radius: 999px;
 }
 
-.search-group {
+
+
+
+.top-row {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 30px;
 }
 
+/* Søkeområdet */
+.search-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Søkeinput */
 #search {
-    width: 320px;
-    padding: 12px 18px;
+    width: 100%;
+    max-width: 520px;
+
+    padding: 18px 24px;
+
     border-radius: 999px;
     border: 1px solid var(--color-border);
-    font-size: 14px;
+
+    font-size: 18px;
+    font-family: var(--font-body);
+
+    background: white;
+
+    transition: all 0.2s ease;
 }
 
 #search:focus {
     outline: none;
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(123, 0, 0, 0.08);
 }
 
+/* Tekst under søk */
 .helper {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--color-text-muted);
-    margin-top: 6px;
+    margin-top: 10px;
 }
 
+/* Chips under søkefelt */
 .chips {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 25px;
+    gap: 12px;
+
+    margin-top: 18px;
+    margin-bottom: 10px;
 }
 
 .chip {
