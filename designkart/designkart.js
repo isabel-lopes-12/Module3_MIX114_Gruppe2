@@ -304,5 +304,5 @@ readMoreBtn.addEventListener("click", (event) => {
   }
 
   window.location.href =
-    `detaljegraferIntegrert/indexDetaljeOppdatert.html?kommune=${valgtKommune}`;
+    `../detaljegraferIntegrert/indexDetaljeOppdatert.html?kommune=${valgtKommune}`;
 });
