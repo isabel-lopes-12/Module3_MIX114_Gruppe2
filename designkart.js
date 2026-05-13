@@ -3,6 +3,7 @@ const mapDataUrl =
 
 let mapChart = null;
 let mapData = null;
+let valgtKommune = null;
 
 const selectedName = document.getElementById("selectedName");
 const selectedInfo = document.getElementById("selectedInfo");
@@ -109,23 +110,29 @@ async function loadMap() {
       point: {
         events: {
           click: function () {
-          const clickedCode =
-            this.code ||
-            this.options.code ||
-            this.properties?.kommunenummer ||
-            this.properties?.KOMMUNENUMMER;
+        const clickedCode =
+          this.code ||
+          this.options.code ||
+          this.properties?.kommunenummer ||
+          this.properties?.KOMMUNENUMMER;
 
-          console.log("Klikket kommune:", this.name, clickedCode);
+        console.log("Klikket kommune:", this.name, clickedCode);
 
-          selectedName.textContent = this.name;
+        // LAGRE VALGT KOMMUNE
+        valgtKommune = normalizeCode(clickedCode);
 
-          highlightMunicipalityAndNeighbors(clickedCode);
+        selectedName.textContent = this.name;
 
-          if (window.getMunicipalityDataHtml) {
-            selectedInfo.innerHTML =
-              window.getMunicipalityDataHtml(clickedCode, this.name);
-          }
+        highlightMunicipalityAndNeighbors(clickedCode);
+
+        if (window.getMunicipalityDataHtml) {
+          selectedInfo.innerHTML =
+            window.getMunicipalityDataHtml(
+              clickedCode,
+              this.name
+            );
         }
+      }
         }
       }
     }]
@@ -278,3 +285,24 @@ window.KKMap = {
 };
 
 loadMap();
+
+// -----------------------------
+// SE MER-KNAPP
+// -----------------------------
+
+const readMoreBtn =
+  document.getElementById("readMoreBtn");
+
+readMoreBtn.addEventListener("click", (event) => {
+
+  event.preventDefault();
+
+  if (!valgtKommune) {
+
+    alert("Velg en kommune først.");
+    return;
+  }
+
+  window.location.href =
+    `detaljegraferIntegrert/indexDetaljeOppdatert.html?kommune=${valgtKommune}`;
+});
