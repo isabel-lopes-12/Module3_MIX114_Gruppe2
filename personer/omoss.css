@@ -40,6 +40,34 @@ body {
   font-style: italic;
 }
 
+/* Venstre del av headeren med logo og tekst */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo i headeren */
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* KommuneKompasset-tekst */
+.brand-text h1 {
+  color: var(--color-card);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Slagord under logo-teksten */
+.brand-text p {
+  color: var(--color-card);
+  font-size: 8px;
+  margin-top: 4px;
+}
 nav {
   display: flex;
   gap: 24px;
