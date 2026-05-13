@@ -322,6 +322,14 @@ body {
   background-color: #163f7d;
 }
 
+.data-date {
+  display: block;
+  font-size: 10px;
+  color: #8a8a8a;
+  text-align: right;
+  margin-top: 14px;
+}
+
 
 /* INFOTEKST OVER FOOTER */
 
