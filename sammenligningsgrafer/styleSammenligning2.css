@@ -57,9 +57,9 @@ body {
 
 /* Grunnstil for hele nettsiden */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #111;
+  font-family: var(--font-body);
+  background-color: var(--color-card);
+  color: var(--color-text);
 }
 
 
@@ -94,7 +94,7 @@ body {
 /* Tittelen KommuneKompasset */
 .brand-text h1 {
   color: #ffffff;
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 700;
   line-height: 1;
 }
@@ -118,14 +118,14 @@ body {
 .nav-link {
   color: #ffffff;
   text-decoration: none; /* Fjerner understrek på lenkene */
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   transition: opacity 0.2s ease; /* Gir myk hover-effekt */
 }
 
 /* Når man holder musepekeren over lenkene */
 .nav-link:hover {
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 /* Aktiv side i menyen */
